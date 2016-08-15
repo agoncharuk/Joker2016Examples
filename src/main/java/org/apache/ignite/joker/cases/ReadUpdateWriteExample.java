@@ -133,8 +133,8 @@ public class ReadUpdateWriteExample {
      * @return Cache configuration.
      */
     private static CacheConfiguration<Long, Account> cacheConfiguration(
-            CacheWriteSynchronizationMode syncMode,
-            boolean readFromBackup
+        CacheWriteSynchronizationMode syncMode,
+        boolean readFromBackup
     ) {
         CacheConfiguration<Long, Account> cfg = new CacheConfiguration<>();
 
