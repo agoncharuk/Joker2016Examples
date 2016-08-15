@@ -31,20 +31,13 @@ import org.apache.ignite.transactions.TransactionIsolation;
 import org.apache.ignite.transactions.TransactionOptimisticException;
 
 import java.math.BigDecimal;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicBoolean;
 
-import static org.apache.ignite.transactions.TransactionConcurrency.OPTIMISTIC;
-import static org.apache.ignite.transactions.TransactionConcurrency.PESSIMISTIC;
-import static org.apache.ignite.transactions.TransactionIsolation.READ_COMMITTED;
-import static org.apache.ignite.transactions.TransactionIsolation.REPEATABLE_READ;
-import static org.apache.ignite.transactions.TransactionIsolation.SERIALIZABLE;
+import static org.apache.ignite.transactions.TransactionConcurrency.*;
+import static org.apache.ignite.transactions.TransactionIsolation.*;
 
 /**
- *
+ * This examples demonstrates different scenarios for read-update-write scenarios.
  */
 public class ReadUpdateWriteExample {
     /** */
@@ -65,8 +58,7 @@ public class ReadUpdateWriteExample {
             try {
                 for (int i = 0; i < threadCnt; i++)
                     svc.submit(new Callable<Void>() {
-                        @Override
-                        public Void call() throws Exception {
+                        @Override public Void call() throws Exception {
                             // PESSIMISTIC READ_COMMITTED - fails.
                             // PESSIMISTIC REPEATABLE_READ - ok.
                             // OPTIMISTIC REPEATABLE_READ - fails.
