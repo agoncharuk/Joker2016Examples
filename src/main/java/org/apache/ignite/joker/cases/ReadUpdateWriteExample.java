@@ -86,7 +86,8 @@ public class ReadUpdateWriteExample {
                     System.out.println("Total sum check failed: " + total);
                 else
                     System.out.println("Total sum check OK.");
-            } finally {
+            }
+            finally {
                 ignite.destroyCache(null);
             }
         }

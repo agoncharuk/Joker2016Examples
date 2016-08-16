@@ -20,7 +20,6 @@ package org.apache.ignite.joker.cases;
 import org.apache.ignite.Ignite;
 import org.apache.ignite.IgniteCache;
 import org.apache.ignite.Ignition;
-import org.apache.ignite.cache.CacheAtomicityMode;
 import org.apache.ignite.cache.CacheWriteSynchronizationMode;
 import org.apache.ignite.configuration.CacheConfiguration;
 import org.apache.ignite.joker.model.Account;
@@ -80,7 +79,6 @@ public class ReadAfterWriteExample {
         CacheConfiguration<Long, Account> cfg = new CacheConfiguration<>();
 
         cfg.setBackups(2);
-        cfg.setAtomicityMode(CacheAtomicityMode.ATOMIC);
         cfg.setWriteSynchronizationMode(syncMode);
         cfg.setReadFromBackup(readFromBackup);
 
